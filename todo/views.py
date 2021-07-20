@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserChangeForm
 
-# Create your views here.
+
+def signupuser(request):
+    return render(request, template_name='todo/signupuser.html', context={'form': UserChangeForm()})
