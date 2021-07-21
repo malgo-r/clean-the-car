@@ -1,0 +1,14 @@
+{% extends 'baseauth/base.html' %}
+{% block content %}
+
+{{ error }}
+
+<h1> Log in</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-"""todoapp URL Configuration
+"""baseauthapp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo import views
+from baseauth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # auth
-    path(route='signup/', view=views.signupuser, name='signupuser')
+    path(route='signup/', view=views.signupuser, name='signupuser'),
+    path(route='login/', view=views.loginuser, name='loginuser'),
+    path(route='logout/', view=views.logoutuser, name='logoutuser'),
+
+    path(route='', view=views.home, name='home'),
     # todos
+    path(route='current/', view=views.currenttodos, name='currenttodos'),
 ]
