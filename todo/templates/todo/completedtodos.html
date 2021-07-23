@@ -1,6 +1,6 @@
 {% extends 'todo/base.html' %}
 {% block content %}
-Current
+Completed
 
 <ul>
     {% for todo in todos %}
@@ -14,6 +14,7 @@ Current
 
         {% endif %}
         {% if todo.comment %} - {{ todo.comment }}{% endif %}
+        {{ todo.completion_date|date:'M j H:i' }}
         </a>
     </li>
     {% endfor %}
