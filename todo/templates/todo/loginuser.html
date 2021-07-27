@@ -1,14 +1,19 @@
 {% extends 'todo/base.html' %}
 {% block content %}
 
-{{ error }}
+<!--Login section-->
+<section class="page-section be-under-navbar" id="loginpage">
+    <div class="be-under-navbar">
+        <div class="container">
+            <h1> Log in</h1>
 
-<h1> Log in</h1>
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
-
+            <form method="POST" class='h3 form-control-color'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+                {{ error }}
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}

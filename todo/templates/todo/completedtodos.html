@@ -1,22 +1,27 @@
 {% extends 'todo/base.html' %}
 {% block content %}
-Completed
 
-<ul>
-    {% for todo in todos %}
-    <li>
-        <a href="{% url 'viewtodo' todo.id %}">
-        {% if todo.important %}
-        <b> {{ todo.title }}
+<!--Completed todos section-->
+<section class="page-section be-under-navbar" id="completedtodos">
+    <div class="container">
+        Your completed todos:
+        <ol class="">
+            {% for todo in todos %}
+            <li>
+                <a class="nav-link" href="{% url 'viewtodo' todo.id %}">
+                    {% if todo.important %}
+                    <b> {{ todo.title }}
 
-            {% else %}
-        </b> {{ todo.title }}
+                        {% else %}
+                    </b> {{ todo.title }}
 
-        {% endif %}
-        {% if todo.comment %} - {{ todo.comment }}{% endif %}
-        {{ todo.completion_date|date:'M j H:i' }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+                    {% endif %}
+                    {% if todo.comment %} - {{ todo.comment }}{% endif %}
+                    {{ todo.completion_date|date:'M j H:i' }}
+                </a>
+            </li>
+            {% endfor %}
+            {% endblock %}
+        </ol>
+    </div>
+</section>

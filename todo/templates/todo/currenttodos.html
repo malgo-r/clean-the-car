@@ -1,11 +1,13 @@
 {% extends 'todo/base.html' %}
 {% block content %}
-Current
 
-<ul>
+<!--Current todos section-->
+<section class="page-section be-under-navbar" id="currenttodos">
+Current
+<ol>
     {% for todo in todos %}
     <li>
-        <a href="{% url 'viewtodo' todo.id %}">
+        <a class="nav-link text-primary" href="{% url 'viewtodo' todo.id %}">
         {% if todo.important %}
         <b> {{ todo.title }}
 
@@ -17,5 +19,6 @@ Current
         </a>
     </li>
     {% endfor %}
-</ul>
+</ol>
 {% endblock %}
+</section>

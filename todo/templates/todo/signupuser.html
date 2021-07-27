@@ -2,12 +2,14 @@
 {% block content %}
 
 {{ error }}
+<!--Signup section-->
+<section class="page-section be-under-navbar" id="signupuser">
 
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
-
+</section>
 {% endblock %}
 
