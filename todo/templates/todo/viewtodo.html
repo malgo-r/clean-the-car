@@ -1,10 +1,13 @@
 {% extends 'todo/base.html' %}
 {% block content %}
 
+{% if error %}
+
 {{ error }}
 
-{{ todo.title }}
+{% endif %}
 
+{{ todo.title }}
 <!--save mytodo-->
 <form method="POST">
     {% csrf_token %}
@@ -23,5 +26,4 @@
     {% csrf_token %}
     <button type="submit">Delete</button>
 </form>
-
 {% endblock %}
