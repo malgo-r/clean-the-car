@@ -1,13 +1,41 @@
 {% extends 'todo/base.html' %}
 {% block content %}
 
-<h1> Log in</h1>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5" style="color: #c19a3c;">
+        <h1> Log in</h1>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5" style="color: #c19a3c;">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
 
-<form method="POST" class="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-    {{ error }}
-</form>
+        <!--Login form-->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="col-md-5">
+                <div class="mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username"
+                           style="background: #272727; border: #272727; color: #E7E7E7;">
+                </div>
+                <div class="mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password"
+                           style="background: #272727; border: #272727; color: #E7E7E7;">
+                </div>
+                <button type="submit" class="btn fw-bold" style="background-color: #c19a3c;">Login</button>
+            </div>
+        </form>
+        <div class="col-md-5">
+            Need an account? <a href="{% url 'signupuser' %}" style="color: inherit; text-hover: #4f4837;">Sign Up
+            here</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
