@@ -7,8 +7,6 @@
         <ol>
             {% for todo in todos %}
             <li>
-                <a class="todo-link text-decoration-none" style="color: inherit; text-hover: #4f4837;"
-                   href="{% url 'viewtodo' todo.id %}">
                     {% if todo.important %}
                     <b> {{ todo.title }}
 
@@ -18,7 +16,6 @@
                     {% endif %}
                     {% if todo.comment %} - {{ todo.comment }}{% endif %}
                     {{ todo.completion_date|date:'M j H:i' }}
-                </a>
             </li>
             {% endfor %}
         </ol>
